@@ -1,0 +1,40 @@
+
+.title {
+  background-color:lightseagreen;
+  color: whitesmoke;
+  height: 2em;
+}
+
+img {
+  border: none;
+  background: transparent;
+  background-blend-mode: multiply;
+  background-color: lightseagreen;
+  margin-right: 2em;
+}
+
+form {
+  margin: 2em;
+}
+
+button {
+  color:white;
+  background-color: orange;
+  width: 100px;
+}
+
+.fr {
+ text-align: right;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  font: bold;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}

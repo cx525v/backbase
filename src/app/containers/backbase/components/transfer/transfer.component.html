@@ -1,0 +1,80 @@
+
+<div class="title">
+  <img src="/assets/icons/arrows.png"> <mat-label>Make a Transfer</mat-label>
+</div>
+
+ <mat-card>
+  <mat-card-header  style="background-color: lightseagreen;">
+
+  </mat-card-header>
+  <mat-card-content>
+
+
+    <form [formGroup]="transferForm" (ngSubmit)="transfer()" width="100%">
+      <div class="row">
+        <div class="col-md-11 col-lg-11">
+          <mat-form-field style="width:220px !important">
+            <mat-label>FROM ACCOUNT</mat-label>
+              <input
+                type="text"
+                placeholder="From Account"
+                aria-label="From Account"
+                matInput
+                formControlName="fromAccount"
+                width="100%"
+                readonly
+              />
+          </mat-form-field>
+      </div>
+    </div>
+
+     <div class="row">
+      <div class="col-md-11 col-lg-11">
+        <mat-form-field style="width:220px !important">
+            <mat-label>TO ACCOUNT</mat-label>
+          <input
+          type="text"
+          placeholder="To Account"
+          aria-label="To Account"
+          matInput
+          formControlName="toAccount"
+          id="toAccountInput"
+        />
+
+        </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-11 col-lg-11">
+        <mat-form-field style="width:220px !important">
+          <mat-label>AMOUNT</mat-label>
+          <input
+          type="text"
+          placeholder="Amount"
+          aria-label="Amount"
+          matInput
+          formControlName="amount"
+          id="inputAmount"
+        />
+        </mat-form-field >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-11 col-lg-11">
+        <mat-error *ngIf="isOverBalance">
+          <mat-label id="amountError">Amount is over balance</mat-label>
+        </mat-error>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-lg-10 fr">
+      <button mat-mat-raised-button type="submit" id="bSubmit">Submit</button>
+      </div>
+    </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+

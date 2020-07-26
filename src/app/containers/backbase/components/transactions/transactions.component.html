@@ -1,0 +1,44 @@
+
+<div class="title">
+  <img src="/assets/icons/briefcase.png"> <mat-label>Recent Transactions</mat-label>
+</div>
+ <mat-card>
+  <mat-card-header >
+
+    <div fxLayout fxLayoutAlign="center center">
+      <mat-form-field fxFlex="40%">
+        <input matInput #searchField type="text" (keyup)="onFilter($event.target.value)" placeholder="Search by typing" autocomplete="off" id="searchFilter">
+        <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="searchField.value" id="bClear">x</button>
+      </mat-form-field>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table matSort [dataSource]="dataSource">
+
+      <ng-container matColumnDef="transactionDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.transactionDate | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="merchantLogo">
+        <th mat-header-cell *matHeaderCellDef> </th>
+         <td mat-cell *matCellDef="let element"> <img src= {{element.merchantLogo}} height="36px"/>  </td>
+      </ng-container>
+
+      <ng-container matColumnDef="merchant">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Merchant/Transaction Type </th>
+        <td mat-cell *matCellDef="let element"> <strong>{{element.merchant}} </strong> <br /> {{element.transactionType}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>
+

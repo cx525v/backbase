@@ -1,0 +1,22 @@
+<ng-container>
+  <div class="header">
+    <img src="assets/logo.jpg" width="300px" height="30px">
+  </div>
+
+  <div class="main">
+    <div class="container ">
+      <div class="row">
+        <div class="content col-mid-4 col-lg-4">
+          <app-transfer [bankAccount]="bankAccount" (onTransfer)="transfer($event)">
+          </app-transfer>
+        </div>
+        <div class="content col-mid-8, col-lg-8">
+           <app-transactions [transactions]="transactions" ></app-transactions>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-container>
+
+
